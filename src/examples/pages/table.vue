@@ -68,30 +68,5 @@ function changeLimit(newLimit: number) {
       </el-table>
     </div>
     <hr>
-    <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        Pagination
-      </mark>
-      <form class="form">
-        <FormItem label="size=&quot;sm&quot;">
-          <Pagination v-model="paginationOptions.currentPage" :total-count="paginationOptions.totalCount"
-            :limit="paginationOptions.limit" :limit-options="paginationOptions.limitOptions"
-            :max-pages-shown="paginationOptions.maxPagesShown" below-limit-shown limit-options-shown
-            @change-limit="changeLimit" size="sm" />
-        </FormItem>
-        <FormItem label="default">
-          <Pagination v-model="paginationOptions.currentPage" :total-count="paginationOptions.totalCount"
-            :limit="paginationOptions.limit" :limit-options="paginationOptions.limitOptions"
-            :max-pages-shown="paginationOptions.maxPagesShown" below-limit-shown limit-options-shown
-            @change-limit="changeLimit" />
-        </FormItem>
-        <FormItem label="size=&quot;lg&quot;">
-          <Pagination v-model="paginationOptions.currentPage" :total-count="paginationOptions.totalCount"
-            :limit="paginationOptions.limit" :limit-options="paginationOptions.limitOptions"
-            :max-pages-shown="paginationOptions.maxPagesShown" below-limit-shown limit-options-shown
-            @change-limit="changeLimit" size="lg" />
-        </FormItem>
-      </form>
-    </div>
   </div>
 </template>

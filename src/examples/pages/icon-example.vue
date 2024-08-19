@@ -63,7 +63,7 @@ const icons = [
       @apply flex items-center justify-center;
       width: 100%;
       padding: 10px;
-      background: #745736;
+      background: #edf0b3;
     }
 
     &-name {

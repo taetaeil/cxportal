@@ -39,7 +39,7 @@ const handleCancel = () => {
 </script>
 
 <template>
-  <common-modal v-model="isShow" :title="t('excel-temp.popup.title')">
+  <common-modal v-model="isShow" title="엑셀 템플릿 관리 팝업">
     <template #content>
       <form class="form">
         <FormItem :label="t('excel-temp.label.work')">

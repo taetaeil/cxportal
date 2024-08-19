@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
+
 const form = reactive({
   checkbox1: true,
   checkbox2: '',
@@ -49,36 +51,6 @@ const form = reactive({
       </form>
     </div>
     <hr>
-
-    <!-- radio -->
-    <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        radio
-      </mark>
-      <form class="form  content-box">
-        <FormItem label="Basic">
-          <el-radio-group v-model="form.radio">
-            <el-radio value="A">
-              A
-            </el-radio>
-            <el-radio value="B">
-              B
-            </el-radio>
-          </el-radio-group>
-        </FormItem>
-        <FormItem label="Disabled">
-          <el-radio-group v-model="form.radio" disabled>
-            <el-radio value="A">
-              A
-            </el-radio>
-            <el-radio value="B">
-              B
-            </el-radio>
-          </el-radio-group>
-        </FormItem>
-      </form>
-    </div>
   </div>
 </template>
-
-<style scoped lang="scss"></style>
+<style></style>

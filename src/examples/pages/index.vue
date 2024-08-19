@@ -1,54 +1,106 @@
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const uiComponentData = reactive<any[]>([
   {
     name: 'button',
-    desc: 'button',
+    desc: 'Button',
+  },
+  {
+    name: 'dropdown',
+    desc: 'Dropdown',
+  },
+  {
+    name: 'input',
+    desc: 'Basic / Search / File / Number',
+  },
+  {
+    name: 'icon-example',
+    desc: 'Icon Image Example',
+  },
+  {
+    name: 'checkbox',
+    desc: 'Checkbox',
+  },
+  {
+    name: 'switch',
+    desc: 'Switch',
+  },
+  {
+    name: 'tab',
+    desc: 'Tab',
   },
   {
     name: 'datepicker',
     desc: 'Range Datepicker',
   },
   {
+    name: 'title',
+    desc: 'Title',
+  },
+  {
+    name: 'modal',
+    desc: 'Modal',
+  },
+  {
     name: 'form',
     desc: 'Form / SearchForm / File',
   },
   {
-    name: 'textfield',
-    desc: 'input / textarea / select',
+    name: 'box',
+    desc: 'Box',
   },
   {
-    name: 'selector',
-    desc: 'checkbox / radio',
+    name: 'carousel',
+    desc: 'Carousel',
+  },
+  {
+    name: 'g-c-area',
+    desc: 'Graph / Chart Area',
   },
   {
     name: 'table',
-    desc: 'table / Pagination',
+    desc: 'Table',
   },
   {
-    name: 'popup',
-    desc: 'Popup',
+    name: 'radio',
+    desc: 'Radio / Filter',
+  },
+  {
+    name: 'Pagination',
+    desc: 'Pagination',
+  },
+  {
+    name: 'textarea',
+    desc: 'Textarea',
+  },
+  {
+    name: 'tooltip',
+    desc: 'Tooltip',
+  },
+  {
+    name: 'divider',
+    desc: 'Divider',
+  },
+  {
+    name: 'control-bar',
+    desc: 'Control Bar ',
   },
   {
     name: 'tree',
     desc: 'Tree',
   },
-  {
-    name: 'progress',
-    desc: 'Progress',
-  },
-  {
-    name: 'chart',
-    desc: 'Bar / Line',
-  },
-  {
-    name: 'icon-example',
-    desc: 'Icon Image Example',
-  },
+  // {
+  //   name: 'progress',
+  //   desc: 'Progress',
+  // },
+  // {
+  //   name: 'chart',
+  //   desc: 'Bar / Line',
+  // },
 ])
 
 const movePage = (target: any) => {
