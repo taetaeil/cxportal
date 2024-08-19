@@ -1,0 +1,132 @@
+/* ========================== Variables ========================== */
+$selector-colors: (
+  background: (
+    default: var(--color-white),
+    disabled: var(--textfield-disabled-bg-color)
+  ),
+  border: (
+    default: var(--textfield-border-color),
+    disabled: var(--textfield-disabled-border-color)
+  ),
+  checked: var(--textfield-active-color)
+);
+$bg-color: map-get($selector-colors, background);
+$bd-color: map-get($selector-colors, border);
+
+/* ========================== Mixins ========================== */
+@mixin selector-base($type) {
+  .el-#{$type}__input {
+    &.is-checked {
+      .el-#{$type}__inner {
+        &::after {
+          @if ($type == checkbox) {
+            left: 6px;
+            height: 10px;
+            width: 4px;
+            border-width: 2px;
+          }
+          @if ($type == radio) {
+            width: 9px;
+            height: 9px;
+            background-color: map-get($selector-colors, checked);
+          }
+        }
+      }
+    }
+    @if ($type == checkbox) {
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          &::before {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+  }
+  .el-#{$type}__inner {
+    width: var(--selector-size);
+    height: var(--selector-size);
+  }
+}
+@mixin selector-color($type) {
+  .el-#{$type}__input {
+    &.is-checked {
+      .el-#{$type}__inner {
+        border-color: map-get($selector-colors, checked);
+        @if ($type == checkbox) {
+          background-color: map-get($selector-colors, checked);
+        }
+        @if ($type == radio) {
+          background-color: map-get($bg-color, default);
+        }
+      }
+    }
+    &.is-disabled {
+      .el-#{$type}__inner {
+        background-color: map-get($bg-color, disabled);
+        border-color: map-get($bd-color, disabled);
+        &::after {
+          background-color: map-get($bg-color, disabled);
+        }
+      }
+      & + .el-#{$type}__label {
+        @include typo($font-weight: 500, $color: var(--color-gray-750));
+      }
+    }
+    &.is-disabled.is-checked {
+      .el-#{$type}__inner {
+        @if ($type == checkbox) {
+          background-color: map-get($bg-color, disabled);
+          border-color: map-get($bd-color, disabled);
+          &::after {
+            border-color: map-get($bd-color, disabled);
+          }
+        }
+        @if ($type == radio) {
+          &::after {
+            background-color: map-get($bd-color, disabled);
+          }
+        }
+      }
+    }
+
+    @if ($type == checkbox) {
+      &.is-indeterminate {
+        .el-checkbox__inner {
+          background-color: map-get($selector-colors, checked);
+          border-color: map-get($selector-colors, checked);
+        }
+      }
+    }
+  }
+
+  .el-#{$type}__inner {
+    border: 1px solid map-get($bd-color, default);
+    &:hover {
+      border-color: map-get($bd-color, default);
+    }
+  }
+
+  .el-#{$type}__label {
+    @include typo($font-weight: 500);
+    padding-left: 10px;
+    color: var(--color-gray-750) !important;
+  }
+}
+/* ========================== Styles ========================== */
+// Checkbox
+.el-checkbox {
+  @include selector-base(checkbox);
+  @include selector-color(checkbox);
+  &-group {
+    width: var(--selector-size);
+  }
+}
+
+// Radio
+.el-radio {
+  @include selector-base(radio);
+  @include selector-color(radio);
+}

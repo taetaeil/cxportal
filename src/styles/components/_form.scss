@@ -1,0 +1,134 @@
+/* ========================== Variables ========================== */
+
+/* ========================== Mixins ========================== */
+
+/* ========================== Styles ========================== */
+.form {
+  @include space($y: 20px);
+
+  &__item {
+    @apply flex flex-1;
+
+    &--col {
+      @apply flex-col;
+
+      .form__label-wrap {
+        margin-bottom: 5px;
+        margin-right: 0;
+      }
+    }
+
+    .el-checkbox-group {
+      @include space($y: 10px);
+      & {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__label {
+    @include typo(var(--font-size-15), 500, var(--color-gray-750), var(--form-height-md));
+    display: inline-block;
+    min-width: 140px;
+    align-self: normal;
+
+    &.is-required {
+      @include after {
+        @include typo(var(--font-size-15), 500, var(--color-red), var(--form-height-md));
+        content: '*';
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+    }
+    &-wrap {
+      @apply flex items-center justify-between;
+      margin-right: 20px;
+    }
+  }
+
+  &__group {
+    @apply flex items-center flex-wrap flex-1;
+    gap: 10px;
+
+    .el-select {
+      max-width: 167px;
+    }
+    .form__item {
+      & + .form__item {
+        margin-left: 30px;
+      }
+    }
+    &--col {
+      @apply flex flex-col flex-1;
+      @include space($y: 10px);
+    }
+  }
+
+  &__upload {
+    @apply flex flex-col justify-center flex-1;
+    &-area {
+      @apply flex flex-col items-center justify-center;
+      @include box(25px 0, var(--textfield-border-color), var(--textfield-radius));
+      @include typo($color: var(--textfield-color));
+      width: 100%;
+      & + .form__upload--file {
+        margin-top: 10px;
+      }
+    }
+    &--file {
+      @apply flex;
+      a {
+        &:hover {
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
+      }
+    }
+  }
+}
+.search-form {
+  @apply flex justify-between items-end;
+  @include box(20px 40px);
+  width: 100%;
+  margin-top: 30px;
+
+  &__item-area {
+    @apply flex items-center flex-wrap flex-1;
+    gap: 20px;
+  }
+
+  &__item {
+    @apply flex items-center;
+    @include space($x: 10px);
+    .search-form__item {
+      width: 50%;
+    }
+    &:last-child {
+      @apply flex flex-1;
+    }
+  }
+
+  &__label {
+    @include typo($font-weight: 500, $line-height: var(--form-height-md));
+    min-width: fit-content;
+    margin-right: 10px;
+    white-space: nowrap;
+  }
+
+  &__btn-area {
+    @apply flex items-center;
+    @include space($x: 10px);
+    & {
+      padding-left: 10px;
+    }
+  }
+  .el-select {
+    width: 167px;
+  }
+  .custom-input {
+    min-width: 200px;
+  }
+  .el-date-editor {
+    max-width: 400px;
+  }
+}

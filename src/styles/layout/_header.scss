@@ -1,0 +1,21 @@
+.header {
+  @apply flex justify-end;
+  height: var(--header-height);
+  margin: 0 60px;
+  border-bottom: 1px solid var(--color-gray-450);
+  box-sizing: border-box;
+
+  &__user {
+    @apply flex items-center;
+    @include typo(var(--font-size-15), $color: var(--color-gray-800));
+    padding-right: 20px;
+    margin-right: 20px;
+
+    @include after($w: 1px, $h: 16px) {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--color-gray-400);
+    }
+  }
+}

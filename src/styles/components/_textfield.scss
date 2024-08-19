@@ -1,0 +1,232 @@
+/* ========================== Variables ========================== */
+$textfield-padding: (
+  input: 0 15px,
+  textarea: 13px 15px,
+  dropdown: 6px 10px 6px 15px
+);
+
+/* ========================== Mixins ========================== */
+@mixin textfield-base($type) {
+  @apply flex flex-col flex-1;
+  input,
+  textarea {
+    @include typo($color: var(--textfield-color), $line-height: 1.3);
+    width: 100%;
+    transition: var(--transition);
+    word-break: break-all;
+
+    @if ($type == input) {
+      padding: map-get($textfield-padding, input);
+    }
+    @if ($type == textarea) {
+      overflow-y: auto;
+      height: 100%;
+      padding: map-get($textfield-padding, textarea);
+      resize: none;
+    }
+    &[readonly] {
+      cursor: default;
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+@mixin textfield-color {
+  input,
+  textarea {
+    background-color: var(--color-white);
+    border: 1px solid var(--textfield-border-color);
+    border-radius: var(--textfield-radius);
+
+    &:focus:not([readonly]) {
+      border-color: var(--textfield-focus-border-color);
+    }
+
+    &::placeholder {
+      color: var(--textfield-placeholder-color);
+    }
+
+    &[readonly] {
+      background: var(--textfield-readonly-bg-color);
+    }
+
+    &:disabled {
+      border-color: var(--textfield-disabled-border-color);
+      color: var(--textfield-placeholder-color);
+    }
+
+    &.is-error {
+      border-color: var(--textfield-validation-color);
+      &:focus {
+        border-color: var(--textfield-validation-color);
+      }
+    }
+  }
+}
+
+@mixin textfield-size($size: md) {
+  @each $key, $value in $textfield-size {
+    &--#{$key} {
+      input,
+      .el-select__wrapper {
+        height: $value;
+      }
+    }
+  }
+}
+/* ========================== Styles ========================== */
+//  Input
+.custom-input {
+  @include textfield-base(input);
+  @include textfield-color;
+  @include textfield-size;
+  &__wrap {
+    position: relative;
+  }
+}
+
+// Textarea
+.custom-textarea {
+  @include textfield-base(textarea);
+  @include textfield-color;
+}
+
+.textfield {
+  &__valid {
+    @apply flex items-center;
+    @include typo($color: var(--textfield-validation-color));
+    margin-top: 5px;
+  }
+  &__prefix-icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(10px, -50%);
+  }
+  &__suffix-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 16px;
+    transform: translateY(-50%);
+  }
+}
+
+// Dropdown
+.el-select {
+  @include textfield-size;
+
+  .el-select {
+    &__wrapper {
+      padding: map-get($textfield-padding, dropdown);
+      border: 1px solid var(--textfield-border-color);
+      border-radius: var(--textfield-radius);
+      box-shadow: none;
+      &.is-hovering:not(.is-focused) {
+        box-shadow: none;
+      }
+
+      &.is-focused {
+        border: 1px solid var(--textfield-focus-border-color);
+        box-shadow: none;
+      }
+
+      &.is-disabled {
+        @include typo($color: var(--textfield-disabled-color));
+        border: 1px solid var(--textfield-disabled-border-color);
+        background: var(--textfield-disabled-bg-color);
+
+        .el-select__selected-item {
+          @include typo($color: var(--textfield-placeholder-color));
+        }
+
+        .el-select__suffix {
+          @include icon($name: arrow-b__line--999);
+        }
+      }
+
+      .el-select__suffix {
+        width: 16px;
+        @include icon($name: arrow-b__line--333);
+
+        .el-icon {
+          svg {
+            display: none;
+          }
+
+          &.is-reverse {
+            transform: none;
+          }
+        }
+      }
+    }
+
+    &__placeholder {
+      @include typo($color: var(--textfield-color));
+      &.is-transparent {
+        color: var(--textfield-placeholder-color) !important;
+      }
+    }
+  }
+
+  &[readonly] {
+    pointer-events: none;
+    .el-select__wrapper {
+      background: var(--textfield-readonly-bg-color);
+      .el-select__suffix {
+        @include icon($name: arrow-b__line--999);
+      }
+    }
+  }
+
+  &__prefix {
+    color: var(--textfield-placeholder-color) !important;
+  }
+}
+
+.el-select__popper {
+  &.el-popper {
+    &.is-pure {
+      margin-top: -9px;
+      border: 1px solid var(--color-gray-400);
+      box-shadow: 3px 4px 6px 0px rgba(0, 0, 0, 0.1);
+
+      .el-select-dropdown {
+        max-width: 500px;
+        border-radius: var(--textfield-radius);
+
+        &__list {
+          padding: 0;
+        }
+
+        &__item {
+          @include typo($color: var(--textfield-color), $line-height: var(--form-height-lg));
+          height: var(--form-height-lg);
+          padding: 0 13px;
+          transition: var(--transition);
+          p {
+            @include truncate;
+          }
+
+          &.is-hovering {
+            background: var(--color-primary-700);
+          }
+
+          &.is-disabled {
+            @include typo($color: var(--textfield-disabled-color));
+          }
+
+          &.is-selected {
+            &::after {
+              content: none;
+            }
+          }
+        }
+      }
+      .el-popper__arrow {
+        display: none;
+      }
+    }
+  }
+}

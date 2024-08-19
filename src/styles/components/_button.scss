@@ -1,0 +1,135 @@
+/* ========================== Variables ========================== */
+
+/* ========================== Mixins ========================== */
+@mixin btn($type: 'positive', $form: 'full', $color: 'primary') {
+  @apply flex items-center justify-center;
+  @include typo(var(--font-size-15), 500);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: var(--transition);
+  white-space: nowrap;
+
+  @if $type == 'positive' and $form == 'full' {
+    background-color: if($color == 'primary', var(--color-primary-800), #776cbf);
+    border-color: if($color == 'primary', var(--color-primary-800), #776cbf);
+    color: var(--color-white);
+
+    &:hover:not(:disabled) {
+      background-color: if($color == 'primary', #6724b8, #5f559b);
+      border-color: if($color == 'primary', #6724b8, #5f559b);
+      color: var(--color-white);
+    }
+  } @else if $type == 'positive' and $form == 'line' {
+    background-color: var(--color-white);
+    border-color: if($color == 'primary', var(--color-primary-800), #776cbf);
+    color: if($color == 'primary', var(--color-primary-800), #776cbf);
+
+    &:hover:not(:disabled) {
+      border-color: if($color == 'primary', #6724b8, #5f559b);
+      color: if($color == 'primary', #6724b8, #5f559b);
+      svg {
+        * {
+          transition: var(--transition);
+          stroke: if($color == 'primary', #6724b8, #5f559b);
+        }
+      }
+    }
+  } @else if $type == 'negative' and $form == 'full' {
+    background-color: #a3a1b4;
+    color: var(--color-white);
+
+    &:hover:not(:disabled) {
+      background-color: #797498;
+      border-color: #797498;
+      color: var(--color-white);
+    }
+  } @else if $type == 'negative' and $form == 'line' {
+    background-color: var(--color-white);
+    border-color: #a3a1b4;
+    color: #a3a1b4;
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-white);
+      border-color: #797498;
+      color: #797498;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  & + button {
+    margin-left: 10px;
+  }
+}
+
+@mixin btn-size($size: 'md') {
+  @if $size == 'sm' {
+    min-width: 65px;
+    height: var(--form-height-sm);
+    line-height: var(--form-height-sm);
+    padding: 0 15px;
+  } @else if $size == 'md' {
+    min-width: 65px;
+    height: var(--form-height-md);
+    line-height: var(--form-height-md);
+    padding: 0 15px;
+  } @else if $size == 'lg' {
+    min-width: 70px;
+    height: var(--form-height-lg);
+    line-height: var(--form-height-lg);
+    padding: 0 20px;
+  }
+  // 아이콘 버튼인 경우
+  &.has-icon {
+    @if $size == 'sm' {
+      padding: 0 10px;
+      min-width: 75px;
+    } @else if $size == 'md' {
+      min-width: 80px;
+    } @else if $size == 'lg' {
+      padding: 0 15px;
+      min-width: 85px;
+    }
+  }
+}
+/* ========================== Styles ========================== */
+.btn {
+  &__primary {
+    @include btn($type: 'positive', $form: 'full', $color: 'primary');
+  }
+
+  &__secondary {
+    @include btn($type: 'positive', $form: 'full', $color: 'secondary');
+  }
+
+  &__negative {
+    @include btn($type: 'negative', $form: 'full');
+  }
+
+  &__primary-line {
+    @include btn($type: 'positive', $form: 'line', $color: 'primary');
+  }
+
+  &__secondary-line {
+    @include btn($type: 'positive', $form: 'line', $color: 'secondary');
+  }
+
+  &__negative-line {
+    @include btn($type: 'negative', $form: 'line');
+  }
+
+  $formList: 'primary', 'primary-line', 'secondary', 'secondary-line', 'negative', 'negative-line';
+  $sizeList: 'sm', 'md', 'lg';
+
+  @each $form in $formList {
+    @each $size in $sizeList {
+      &__#{$form}--#{$size} {
+        @extend .btn__#{$form};
+        @include btn-size($size: $size);
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+/* ============= mgmt-Layout ============= */
+html,
+body,
+#app {
+  height: 100%;
+}
+
+#app {
+  min-width: var(--layout-min-width);
+}
+
+body {
+  @include typo($line-height: 1.2, $font-family: var(--font-family));
+  background-color: var(--color-gray-250);
+  color: var(--color-gray-750) !important;
+}
+
+.layout {
+  @apply flex;
+  width: 100%;
+  height: 100%;
+}
+.containers {
+  @apply flex flex-col;
+  height: 100%;
+  width: calc(100% - var(--sidebar-width));
+  background: var(--color-gray-250);
+}
+.content {
+  overflow-y: hidden;
+  height: calc(100% - var(--header-height));
+  padding: 30px 60px;
+  > div {
+    @apply flex flex-col;
+    overflow-y: auto;
+    height: 100%;
+  }
+}

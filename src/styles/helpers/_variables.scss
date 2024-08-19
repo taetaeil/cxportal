@@ -1,0 +1,100 @@
+// Layout
+:root {
+  --layout-min-width: 1280px;
+  --header-height: 70px;
+  --sidebar-width: 280px;
+  --scrollbar-width: 20px;
+}
+
+// Typography
+$font-size-map: (
+  36: 36px,
+  28: 28px,
+  26: 26px,
+  24: 24px,
+  22: 22px,
+  16: 16px,
+  15: 15px,
+  14: 14px,
+  13: 13px,
+  12: 12px,
+  10: 10px
+);
+:root {
+  @each $key, $value in $font-size-map {
+    --font-size-#{$key}: #{$value};
+  }
+}
+
+//Color
+:root {
+  //Primary
+  --color-primary-800: #9e4eff;
+  --color-primary-700: #f0e4ff;
+  --color-primary-600: #f7f0ff;
+
+  //GrayScale
+  --color-gray-800: #222222;
+  --color-gray-750: #333333;
+  --color-gray-700: #555555;
+  --color-gray-650: #888888;
+  --color-gray-600: #999999;
+  --color-gray-550: #bbbbbb;
+  --color-gray-500: #c7c7c7;
+  --color-gray-450: #d2d2d2;
+  --color-gray-400: #dddddd;
+  --color-gray-350: #e2e2e2;
+  --color-gray-300: #eaeaea;
+  --color-gray-250: #f6f6f6;
+  --color-gray-200: #f7f7f7;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red: #fe3737;
+}
+
+// Form
+:root {
+  --form-height-sm: 32px;
+  --form-height-md: 36px;
+  --form-height-lg: 40px;
+
+  --textfield-radius: var(--radius-sm);
+  --textfield-color: var(--color-gray-700);
+  --textfield-border-color: var(--color-gray-500);
+  --textfield-placeholder-color: var(--color-gray-600);
+  --textfield-focus-border-color: var(--color-gray-750);
+  --textfield-disabled-color: var(--color-gray-600);
+  --textfield-disabled-border-color: var(--color-gray-300);
+  --textfield-disabled-bg-color: var(--color-gray-200);
+  --textfield-readonly-bg-color: var(--color-gray-200);
+  --textfield-validation-color: var(--color-red);
+  --textfield-active-color: var(--color-primary-800);
+
+  --selector-size: 20px;
+
+  --radius-sm: 2px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+}
+
+$textfield-size: (
+  sm: var(--form-height-sm),
+  md: var(--form-height-md),
+  lg: var(--form-height-lg)
+);
+
+// Modal
+:root {
+  --modal-width-sm: 360px;
+  --modal-width-md: 600px;
+  --modal-width-lg: 820px;
+  --modal-width-xl: 1400px;
+}
+
+// ETC
+:root {
+  --transition: all 0.2s linear;
+  --font-family: 'Pretendard', -apple-system, system-ui, Roboto, 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+}
