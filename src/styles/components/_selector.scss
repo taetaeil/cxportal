@@ -1,18 +1,4 @@
 /* ========================== Variables ========================== */
-$selector-colors: (
-  background: (
-    default: var(--color-white),
-    disabled: var(--textfield-disabled-bg-color)
-  ),
-  border: (
-    default: var(--textfield-border-color),
-    disabled: var(--textfield-disabled-border-color)
-  ),
-  checked: var(--textfield-active-color)
-);
-$bg-color: map-get($selector-colors, background);
-$bd-color: map-get($selector-colors, border);
-
 /* ========================== Mixins ========================== */
 @mixin selector-base($type) {
   .el-#{$type}__input {
@@ -28,7 +14,7 @@ $bd-color: map-get($selector-colors, border);
           @if ($type == radio) {
             width: 9px;
             height: 9px;
-            background-color: map-get($selector-colors, checked);
+            background-color: var(--textfield-active-color);
           }
         }
       }
@@ -54,21 +40,21 @@ $bd-color: map-get($selector-colors, border);
   .el-#{$type}__input {
     &.is-checked {
       .el-#{$type}__inner {
-        border-color: map-get($selector-colors, checked);
+        border-color: var(--textfield-active-color);
         @if ($type == checkbox) {
-          background-color: map-get($selector-colors, checked);
+          background-color: var(--textfield-active-color);
         }
         @if ($type == radio) {
-          background-color: map-get($bg-color, default);
+          background-color: var(--color-white);
         }
       }
     }
     &.is-disabled {
       .el-#{$type}__inner {
-        background-color: map-get($bg-color, disabled);
-        border-color: map-get($bd-color, disabled);
+        background-color: var(--textfield-disabled-bg-color);
+        border-color: var(--textfield-disabled-border-color);
         &::after {
-          background-color: map-get($bg-color, disabled);
+          background-color: var(--textfield-disabled-bg-color);
         }
       }
       & + .el-#{$type}__label {
@@ -78,15 +64,15 @@ $bd-color: map-get($selector-colors, border);
     &.is-disabled.is-checked {
       .el-#{$type}__inner {
         @if ($type == checkbox) {
-          background-color: map-get($bg-color, disabled);
-          border-color: map-get($bd-color, disabled);
+          background-color: var(--textfield-disabled-bg-color);
+          border-color: var(--textfield-disabled-border-color);
           &::after {
-            border-color: map-get($bd-color, disabled);
+            border-color: var(--textfield-disabled-border-color);
           }
         }
         @if ($type == radio) {
           &::after {
-            background-color: map-get($bd-color, disabled);
+            background-color: var(--textfield-disabled-border-color);
           }
         }
       }
@@ -95,17 +81,17 @@ $bd-color: map-get($selector-colors, border);
     @if ($type == checkbox) {
       &.is-indeterminate {
         .el-checkbox__inner {
-          background-color: map-get($selector-colors, checked);
-          border-color: map-get($selector-colors, checked);
+          background-color: var(--textfield-active-color);
+          border-color: var(--textfield-active-color);
         }
       }
     }
   }
 
   .el-#{$type}__inner {
-    border: 1px solid map-get($bd-color, default);
+    border: 1px solid var(--textfield-border-color);
     &:hover {
-      border-color: map-get($bd-color, default);
+      border-color: var(--textfield-border-color);
     }
   }
 
@@ -129,4 +115,18 @@ $bd-color: map-get($selector-colors, border);
 .el-radio {
   @include selector-base(radio);
   @include selector-color(radio);
+}
+
+//switch
+.el-switch {
+  width: 42px;
+  height: 24px;
+  &.is-checked {
+    .el-switch__input {
+      & + .el-switch__core {
+        background-color: var(--color-primary-800);
+        border-color: var(--color-primary-800);
+      }
+    }
+  }
 }

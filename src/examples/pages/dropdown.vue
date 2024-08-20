@@ -12,13 +12,10 @@ const initData = ref(3)
 <template>
   <div class="p-20">
     <h2 class="text-3xl font-semibold">
-      TextField
+      Dropdown
     </h2>
     <!-- Dropdown -->
     <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        Dropdown
-      </mark>
       <form class="form">
         <FormItem label="Basic">
           <CustomDropdown v-model="noData" :options="options" placeholder="선택하세요" />

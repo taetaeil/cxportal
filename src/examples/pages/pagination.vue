@@ -44,9 +44,6 @@ function changeLimit(newLimit: number) {
       Pagination
     </h2>
     <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        Pagination
-      </mark>
       <form class="form">
         <FormItem label="size=&quot;sm&quot;">
           <Pagination v-model="paginationOptions.currentPage" :total-count="paginationOptions.totalCount"

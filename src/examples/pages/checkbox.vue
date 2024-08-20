@@ -15,7 +15,7 @@ const form = reactive({
 <template>
   <div class="p-20">
     <h2 class="text-3xl font-semibold">
-      Selector
+      Checkbox
     </h2>
     <div class="flex flex-col gap-2 mt-10 p-10 bg-white rounded-3xl">
       <p><em class="font-bold">el-checkbox-group</em> 사용 시, <em class="font-bold">수직 정렬</em>됩니다.
@@ -24,9 +24,6 @@ const form = reactive({
 
     <!-- checkbox -->
     <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        checkbox
-      </mark>
       <form class="form content-box">
         <FormItem label="Basic">
           <el-checkbox v-model="form.checkbox1" label="A" value="A">
