@@ -1,15 +1,14 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main class="layout">
-    <layout-sidebar />
-    <div class="containers">
-      <layout-header />
+    <layout-header />
+    <section class="wrapper">
+      <layout-sidebar />
       <div class="content">
         <router-view />
       </div>
-    </div>
+    </section>
   </main>
 </template>
 
