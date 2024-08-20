@@ -1,21 +1,144 @@
 .header {
-  @apply flex justify-end;
+  @apply flex flex-col;
+  & {
+    flex: 0 0 auto;
+  }
+}
+
+.main-header {
+  width: 100%;
   height: var(--header-height);
-  margin: 0 60px;
-  border-bottom: 1px solid var(--color-gray-450);
-  box-sizing: border-box;
+  background: var(--header-bg-color);
+
+  &__inner {
+    @apply flex items-center justify-between;
+    @include space($x: 96px);
+    & {
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 7px 0 24px;
+    }
+  }
+
+  &__left {
+    @apply flex items-center;
+    @include space($x: 96px);
+    & {
+      flex: 1 0 auto;
+    }
+  }
+
+  .logo {
+    flex: 0 0 auto;
+  }
+
+  &__board {
+    @apply flex items-center;
+    @include space($x: 8px);
+
+    & {
+      flex: 0 1 auto;
+      width: 100%;
+      min-width: 120px;
+      max-width: 320px;
+    }
+
+    &-wrap {
+      @include typo(var(--font-size-12), 500, var(--color-gray-600), 24px);
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 24px;
+    }
+
+    &-content {
+      position: absolute;
+      white-space: nowrap;
+      will-change: transform;
+      animation: marquee 60s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__right {
+    @apply flex items-center justify-end;
+    @include space($x: 32px);
+    & {
+      flex: 0 0 auto;
+    }
+  }
 
   &__user {
-    @apply flex items-center;
-    @include typo(var(--font-size-15), $color: var(--color-gray-800));
-    padding-right: 20px;
-    margin-right: 20px;
+    @apply flex;
 
-    @include after($w: 1px, $h: 16px) {
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--color-gray-400);
+    &-wrap {
+      @apply flex flex-col;
+      > span {
+        @include typo(var(--font-size-11), 400, var(--color-gray-300));
+      }
+    }
+
+    &-detail {
+      @apply flex items-center;
+      @include space($x: 8px);
+      em {
+        @include typo(var(--font-size-11), 600, var(--color-gray-600));
+      }
+
+      span {
+        @include typo(var(--font-size-11), 400, var(--color-gray-600));
+      }
+    }
+  }
+}
+
+.gnb {
+  @apply flex items-center justify-center;
+  width: 100%;
+  height: var(--gnb-height);
+  background-color: var(--gnb-bg-color);
+
+  > ul {
+    @apply flex;
+    height: 100%;
+    margin: 0 auto;
+    padding: 8px 0;
+
+    > li {
+      @apply flex items-center;
+
+      a {
+        @apply flex items-center justify-center;
+        @include typo(var(--font-size-14), 400, var(--color-white));
+        min-width: var(--gnb-menu-width);
+        height: 100%;
+        border-radius: var(--radius-xl);
+      }
+
+      &.is-active {
+        a {
+          @include typo(var(--font-size-14), 600, var(--color-primary-800));
+          background-color: var(--color-white);
+        }
+      }
+
+      & + li {
+        &::before {
+          content: '';
+          width: 1px;
+          height: 100%;
+          margin: 0 16px;
+          background-color: var(--color-gray-500);
+        }
+      }
     }
   }
 }
