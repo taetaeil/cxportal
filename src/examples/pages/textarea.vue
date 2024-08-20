@@ -18,9 +18,6 @@ const noData = ref()
 
     <!-- textarea -->
     <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        Textarea
-      </mark>
       <form class="form">
         <FormItem label="Basic">
           <CustomTextarea v-model="noData" placeholder="20자 내로 설명을 입력해주세요." />

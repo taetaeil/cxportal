@@ -26,9 +26,6 @@ const form = {
     </div>
     <!-- input -->
     <div class="my-10">
-      <mark class="inline-block mb-5 text-xl font-bold" style="background:#F0E4FF">
-        Input
-      </mark>
       <form class="form">
         <FormItem label="Basic">
           <CustomInput v-model="noData" max-length="10" placeholder="10글자 내로 입력하세요." />
