@@ -1,24 +1,24 @@
 /* ========================== Variables ========================== */
 .el-date-editor {
-  --el-input-border: 1px solid var(--textfield-border-color) !important;
-  --el-input-hover-border: var(--textfield-border-color) !important;
-  --el-input-border-color: var(--textfield-border-color) !important;
-  --el-input-focus-border: var(--textfield-focus-border-color) !important;
-  --el-input-border-radius: var(--textfield-radius) !important;
-  --el-border-radius-base: var(--textfield-radius) !important;
-  --el-input-placeholder-color: var(--textfield-placeholder-color) !important;
-  --el-input-hover-border-color: var(--textfield-border-color) !important;
-  --el-input-focus-border-color: var(--textfield-focus-border-color) !important;
-  --el-disabled-bg-color: var(--textfield-disabled-bg-color) !important;
-  --el-disabled-border-color: var(--textfield-disabled-border-color) !important;
-  --el-disabled-text-color: var(--textfield-disabled-color) !important;
+  --el-input-border: 1px solid var(--form-border-color) !important;
+  --el-input-hover-border: var(--form-border-color) !important;
+  --el-input-border-color: var(--form-border-color) !important;
+  --el-input-focus-border: var(--form-focus-border-color) !important;
+  --el-input-border-radius: var(--form-radius) !important;
+  --el-border-radius-base: var(--form-radius) !important;
+  --el-input-placeholder-color: var(--form-placeholder-color) !important;
+  --el-input-hover-border-color: var(--form-border-color) !important;
+  --el-input-focus-border-color: var(--form-focus-border-color) !important;
+  --el-disabled-bg-color: var(--form-disabled-bg-color) !important;
+  --el-disabled-border-color: var(--form-disabled-border-color) !important;
+  --el-disabled-text-color: var(--form-disabled-color) !important;
 }
 .el-date-range-picker {
-  --el-color-primary: var(--textfield-active-color) !important;
-  --el-datepicker-off-text-color: var(--textfield-disabled-color) !important;
-  --el-datepicker-inner-border-color: var(--textfield-border-color) !important;
+  --el-color-primary: var(--form-active-color) !important;
+  --el-datepicker-off-text-color: var(--form-disabled-color) !important;
+  --el-datepicker-inner-border-color: var(--form-border-color) !important;
   --el-datepicker-active-color: var(--color-primary-800) !important;
-  --el-datepicker-hover-text-color: var(--textfield-active-color) !important;
+  --el-datepicker-hover-text-color: var(--form-active-color) !important;
   --el-datepicker-inrange-bg-color: var(--color-primary-800) !important;
   --el-datepicker-inrange-hover-bg-color: var(--color-primary-800) !important;
 }
@@ -48,12 +48,12 @@
     }
   }
   &.is-readonly {
-    background-color: var(--textfield-disabled-bg-color);
+    background-color: var(--form-disabled-bg-color);
   }
 }
 .el-picker__popper {
   @include typo(var(--font-size-12), 600);
-  border: 1px solid var(--textfield-border-color) !important;
+  border: 1px solid var(--form-border-color) !important;
   border-radius: var(--radius-sm) !important;
   box-shadow: none !important;
   .el-popper__arrow:before {
@@ -123,14 +123,14 @@
         &.in-range,
         &.start-date {
           .el-date-table-cell {
-            @include typo(var(--font-size-12), 600, var(--textfield-active-color));
+            @include typo(var(--font-size-12), 600, var(--form-active-color));
           }
         }
         &.today {
           .el-date-table-cell__text {
             @include typo(var(--font-size-12), 600, $color: var(--color-white));
             width: 30px;
-            background-color: var(--textfield-active-color);
+            background-color: var(--form-active-color);
           }
         }
       }

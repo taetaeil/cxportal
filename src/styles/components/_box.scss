@@ -1,7 +1,7 @@
 @mixin box(
   $padding,
   $bd-color: transparent,
-  $radius: var(--radius-md),
+  $radius: var(--radius-sm),
   $bg-color: var(--color-white)
 ) {
   padding: $padding;
