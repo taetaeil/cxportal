@@ -13,6 +13,10 @@ body {
   text-size-adjust: none;
 }
 
+#app {
+  overflow: auto; // 임시 스타일
+}
+
 .layout {
   @apply flex flex-col;
   overflow: hidden;
