@@ -1,12 +1,9 @@
 /* ========================== Variables ========================== */
 //switch
 .el-switch {
-  --el-switch-on-color: var(--color-primary-800) !important;
+  --el-switch-on-color: var(--form-active-color) !important;
   --el-switch-off-color: #9ea4aa !important;
-}
-//filter
-.el-radio-group {
-  --filter-border-radius: 24px;
+  --el-switch-height: 24px;
 }
 /* ========================== Mixins ========================== */
 @mixin selector-base($type) {
@@ -23,7 +20,7 @@
           @if ($type == radio) {
             width: 9px;
             height: 9px;
-            background-color: var(--textfield-active-color);
+            background-color: var(--form-active-color);
           }
         }
       }
@@ -49,9 +46,9 @@
   .el-#{$type}__input {
     &.is-checked {
       .el-#{$type}__inner {
-        border-color: var(--textfield-active-color);
+        border-color: var(--form-active-color);
         @if ($type == checkbox) {
-          background-color: var(--textfield-active-color);
+          background-color: var(--form-active-color);
         }
         @if ($type == radio) {
           background-color: var(--color-white);
@@ -60,10 +57,10 @@
     }
     &.is-disabled {
       .el-#{$type}__inner {
-        background-color: var(--textfield-disabled-bg-color);
-        border-color: var(--textfield-disabled-border-color);
+        background-color: var(--form-disabled-bg-color);
+        border-color: var(--form-disabled-border-color);
         &::after {
-          background-color: var(--textfield-disabled-bg-color);
+          background-color: var(--form-disabled-bg-color);
         }
       }
       & + .el-#{$type}__label {
@@ -73,15 +70,15 @@
     &.is-disabled.is-checked {
       .el-#{$type}__inner {
         @if ($type == checkbox) {
-          background-color: var(--textfield-disabled-bg-color);
-          border-color: var(--textfield-disabled-border-color);
+          background-color: var(--form-disabled-bg-color);
+          border-color: var(--form-disabled-border-color);
           &::after {
-            border-color: var(--textfield-disabled-border-color);
+            border-color: var(--form-disabled-border-color);
           }
         }
         @if ($type == radio) {
           &::after {
-            background-color: var(--textfield-disabled-border-color);
+            background-color: var(--form-disabled-border-color);
           }
         }
       }
@@ -90,17 +87,17 @@
     @if ($type == checkbox) {
       &.is-indeterminate {
         .el-checkbox__inner {
-          background-color: var(--textfield-active-color);
-          border-color: var(--textfield-active-color);
+          background-color: var(--form-active-color);
+          border-color: var(--form-active-color);
         }
       }
     }
   }
 
   .el-#{$type}__inner {
-    border: 1px solid var(--textfield-border-color);
+    border: 1px solid var(--form-border-color);
     &:hover {
-      border-color: var(--textfield-border-color);
+      border-color: var(--form-border-color);
     }
   }
 
@@ -128,10 +125,10 @@
 
 //switch
 .el-switch {
-  height: 24px !important;
+  height: var(--el-switch-height) !important;
   .el-switch__core {
     min-width: 42px;
-    height: 24px;
+    height: var(--el-switch-height);
     box-sizing: border-box;
     border: 0;
     border-radius: 50px;
@@ -162,12 +159,12 @@
   width: fit-content;
   padding: 2px;
   background: var(--color-gray-400);
-  border-radius: var(--filter-border-radius);
+  border-radius: var(--radius-lg);
   .el-radio-button {
     &:first-child,
     &:last-child {
       .el-radio-button__inner {
-        border-radius: var(--filter-border-radius);
+        border-radius: var(--radius-lg);
         border-left: 2px solid transparent;
       }
     }
@@ -179,7 +176,7 @@
         padding: 0 14px;
         background: transparent;
         border: 2px solid transparent;
-        border-radius: var(--filter-border-radius);
+        border-radius: var(--radius-lg);
         box-sizing: border-box;
         color: var(--color-white);
       }
@@ -196,7 +193,7 @@
                 background: var(--color-white);
                 border-color: var(--color-primary-800);
                 box-shadow: none;
-                color: var(--color-primary-800);
+                color: var(--form-active-color);
               }
             }
           }
