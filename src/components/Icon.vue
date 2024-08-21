@@ -2,29 +2,29 @@
 import { VITE_ICON_SRC_PATH } from '../env.d.ts'
 const props = defineProps({
   name: {
-    type: String,
+    type: String
   },
   extension: {
     type: String,
     default: 'svg',
-    required: false,
+    required: false
   },
   alt: {
-    type: String,
+    type: String
   },
   width: {
-    type: String,
+    type: String
   },
   height: {
-    type: String,
-  },
+    type: String
+  }
 })
 
-const imageSrc = ref(`/icon/${props.name}.${props.extension}`)
+const imageSrc = computed(() => `/icon/${props.name}.${props.extension}`)
 </script>
 
 <template>
-  <img :src="imageSrc" class="icon" :alt="alt" :style="`width: ${width}px; height: ${height}px;`">
+  <img :src="imageSrc" class="icon" :alt="alt" :style="`width: ${width}px; height: ${height}px;`" />
 </template>
 
 <style lang="scss" scoped></style>
