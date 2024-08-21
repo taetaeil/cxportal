@@ -28,14 +28,28 @@ const icons = [
   { fileName: 'plus-round__full' },
   { fileName: 'minus-round__full' },
   { fileName: 'nodata--7f8' },
+  { fileName: 'logo' },
+  { fileName: 'logo--sm' },
+  { fileName: 'side-bg-path__full--fff' },
+  { fileName: 'side-chart__full--fff' },
+  { fileName: 'side-chart__full--ec0' },
+  { fileName: 'side-chat__full--fff' },
+  { fileName: 'side-chat__full--ec0' },
+  { fileName: 'side-dashboard__full--ec0' },
+  { fileName: 'side-dashboard__full--fff' },
+  { fileName: 'side-filter__full--ec0' },
+  { fileName: 'side-filter__full--fff' },
+  { fileName: 'side-notes__full--fff' },
+  { fileName: 'side-notes__full--ec0' },
+  { fileName: 'arrow-d__line--333' },
+  { fileName: 'loud-speacker__line--999' },
+  { fileName: 'search__line--333' }
 ]
 </script>
 
 <template>
   <div class="p-20">
-    <h2 class="text-3xl font-semibold">
-      icon list
-    </h2>
+    <h2 class="text-3xl font-semibold">icon list</h2>
     <ul class="flex flex-wrap gap-5 my-10">
       <li v-for="ic in icons" :key="`pages-${ic.fileName}`" class="example__icon">
         <div class="example__icon-image">

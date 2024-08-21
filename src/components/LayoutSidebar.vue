@@ -61,7 +61,7 @@ const setActive = (i: number) => {
       </ul>
       <div
         class="sidebar__bubble"
-        :style="{ transform: `translateY(calc(var(--sidebar-width) * ${currentMenu}))` }"
+        :style="{ transform: `translateY(calc(var(--sidebar-size) * ${currentMenu}))` }"
         aria-hidden="true"
       ></div>
     </div>

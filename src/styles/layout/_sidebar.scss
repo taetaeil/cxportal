@@ -1,6 +1,6 @@
 .sidebar {
   flex: 0 0 auto;
-  width: var(--sidebar-width);
+  width: var(--sidebar-size);
   height: 100%;
   background-color: var(--sidebar-bg-color);
 
@@ -10,7 +10,13 @@
   }
 
   &__menu {
+    overflow-y: auto;
     position: relative;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     > ul {
       z-index: 1;
@@ -23,7 +29,7 @@
       > li {
         @apply flex flex-col items-center justify-center;
         width: 100%;
-        height: var(--sidebar-width);
+        height: var(--sidebar-size);
 
         .icon,
         span {
@@ -50,7 +56,7 @@
     right: 0;
     top: 0;
     width: 100%;
-    height: var(--sidebar-width);
+    height: var(--sidebar-size);
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
