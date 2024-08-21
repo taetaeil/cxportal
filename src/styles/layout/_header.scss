@@ -106,7 +106,7 @@
   height: var(--gnb-height);
   background-color: var(--gnb-bg-color);
 
-  > ul {
+  &__inner {
     @apply flex;
     height: 100%;
     margin: 0 auto;
@@ -121,6 +121,7 @@
         min-width: var(--gnb-menu-width);
         height: 100%;
         border-radius: var(--radius-xl);
+        transition: var(--transition);
       }
 
       &.is-active {

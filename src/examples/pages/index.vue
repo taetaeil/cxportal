@@ -7,92 +7,92 @@ const router = useRouter()
 const uiComponentData = reactive<any[]>([
   {
     name: 'button',
-    desc: 'Button',
+    desc: 'Button'
   },
   {
     name: 'dropdown',
-    desc: 'Dropdown',
+    desc: 'Dropdown'
   },
   {
     name: 'input',
-    desc: 'Basic / Search / File / Number',
+    desc: 'Basic / Search / File / Number'
   },
   {
     name: 'icon-example',
-    desc: 'Icon Image Example',
+    desc: 'Icon Image Example'
   },
   {
     name: 'checkbox',
-    desc: 'Checkbox',
+    desc: 'Checkbox'
   },
   {
     name: 'switch',
-    desc: 'Switch',
+    desc: 'Switch'
   },
   {
     name: 'tab',
-    desc: 'Tab',
+    desc: 'Tab'
   },
   {
     name: 'datepicker',
-    desc: 'Range Datepicker',
+    desc: 'Range Datepicker'
   },
   {
     name: 'title',
-    desc: 'Title',
+    desc: 'Title'
   },
   {
     name: 'modal',
-    desc: 'Modal',
+    desc: 'Modal'
   },
   {
     name: 'form',
-    desc: 'Form / SearchForm / File',
+    desc: 'Form / SearchForm / File'
   },
   {
     name: 'box',
-    desc: 'Box',
+    desc: 'Box'
   },
   {
     name: 'carousel',
-    desc: 'Carousel',
+    desc: 'Carousel'
   },
   {
     name: 'g-c-area',
-    desc: 'Graph / Chart Area',
+    desc: 'Graph / Chart Area'
   },
   {
     name: 'table',
-    desc: 'Table',
+    desc: 'Table'
   },
   {
     name: 'radio',
-    desc: 'Radio / Filter',
+    desc: 'Radio / Filter'
   },
   {
     name: 'Pagination',
-    desc: 'Pagination',
+    desc: 'Pagination'
   },
   {
     name: 'textarea',
-    desc: 'Textarea',
+    desc: 'Textarea'
   },
   {
     name: 'tooltip',
-    desc: 'Tooltip',
+    desc: 'Tooltip'
   },
   {
     name: 'divider',
-    desc: 'Divider',
+    desc: 'Divider'
   },
   {
     name: 'control-bar',
-    desc: 'Control Bar ',
+    desc: 'Control Bar '
   },
   {
     name: 'tree',
-    desc: 'Tree',
-  },
+    desc: 'Tree'
+  }
   // {
   //   name: 'progress',
   //   desc: 'Progress',
@@ -110,9 +110,7 @@ const movePage = (target: any) => {
 
 <template>
   <div class="p-20 examples">
-    <h2 class="mb-10 text-3xl font-semibold">
-      UI Examples
-    </h2>
+    <h2 class="mb-10 text-3xl font-semibold">UI Examples</h2>
     <div class="p-10 bg-white rounded-3xl">
       <el-table :data="uiComponentData" row-class-name="cursor-pointer" @row-click="movePage">
         <el-table-column type="index" width="'5%'" />
@@ -129,5 +127,5 @@ const movePage = (target: any) => {
 name: ui-examples
 meta:
   isPublicPath: true
-  layout: empty
+  layout: default
 </route>

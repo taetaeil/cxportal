@@ -1,12 +1,17 @@
 // Layout
 :root {
   --layout-min-width: 1280px;
+
   --header-height: 80px;
   --header-bg-color: var(--color-white);
+
   --gnb-height: 52px;
   --gnb-bg-color: var(--color-blue-800);
   --gnb-menu-width: 184px;
-  --sidebar-width: 280px;
+
+  --sidebar-width: 112px;
+  --sidebar-bg-color: var(--color-blue-700);
+
   --scrollbar-width: 20px;
 }
 
@@ -95,7 +100,7 @@ $textfield-size: (
 
 // ETC
 :root {
-  --transition: all 0.2s linear;
+  --transition: all 0.15s linear;
   --font-family: 'Pretendard', -apple-system, system-ui, Roboto, 'Apple SD Gothic Neo',
     'Malgun Gothic', sans-serif;
 }

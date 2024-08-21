@@ -1,51 +1,70 @@
 <script setup lang="ts">
-const menuList = reactive([
+const sideMenuItems = reactive([
   {
-    menuId: 'Example',
-    menuName: 'Example',
-    menuIndex: '0',
-    menuUrl: '/examples',
-    disabled: false,
+    menuNum: 0,
+    icoNm: 'chart',
+    name: 'My View'
   },
+  {
+    menuNum: 1,
+    icoNm: 'dashboard',
+    name: 'Dashboard'
+  },
+  {
+    menuNum: 2,
+    icoNm: 'notes',
+    name: '관리실적'
+  },
+  {
+    menuNum: 3,
+    icoNm: 'chat',
+    name: '원문보기'
+  },
+  {
+    menuNum: 4,
+    icoNm: 'filter',
+    name: '목표관리'
+  }
 ])
 
-const router = useRouter()
+const currentMenu = ref(0)
 
-const movePage = (menuUrl: string) => {
-  const newWebPageUrlRegex = /http(s)?:\/\/.+/
-  if (newWebPageUrlRegex.test(menuUrl))
-    window.open(menuUrl)
-  else
-    router.push(menuUrl)
+const setActive = (i: number) => {
+  currentMenu.value = i
 }
 </script>
 
 <template>
   <aside class="sidebar">
-    <h1 class="logo">
-      <a href="#">CX portal</a>
-    </h1>
-    <el-menu>
-      <template v-for="menu in menuList" :key="`mgmt-sidebar-${menu.menuId}`">
-        <el-sub-menu v-if="menu.children" :index="menu.menuIndex">
-          <template #title>
-            <span>{{ menu.menuName }}</span>
-          </template>
-          <!-- 2depth -->
-          <el-menu-item-group>
-            <el-menu-item v-for="lowerMenu in menu.children" :key="`mgmt-sidebar-menu-lower-${lowerMenu.menuId}`"
-              :index="lowerMenu.menuIndex" @click="movePage(lowerMenu.menuUrl!)">
-              <span>{{ lowerMenu.menuName }}</span>
-            </el-menu-item>
-          </el-menu-item-group>
-        </el-sub-menu>
-        <el-menu-item v-else :index="menu.menuIndex" @click="movePage(menu.menuUrl!)">
-          <template #title>
-            <span>{{ menu.menuName }}</span>
-          </template>
-        </el-menu-item>
-      </template>
-    </el-menu>
+    <h2 class="logo--sm">
+      <a href="/">
+        <Icon name="logo--sm" width="72" height="30" alt="LG U+ CX 통합포탈" />
+      </a>
+    </h2>
+    <div class="sidebar__menu">
+      <ul>
+        <li
+          v-for="sideMenu in sideMenuItems"
+          :key="`side-menu-${sideMenu.menuNum}`"
+          :class="{ 'is-active': sideMenu.menuNum === currentMenu }"
+          @click="setActive(sideMenu.menuNum)"
+        >
+          <Icon
+            :name="`side-${sideMenu.icoNm}__full--${sideMenu.menuNum === currentMenu ? 'ec0' : 'fff'}`"
+            width="24"
+            height="24"
+            alt=""
+            aria-hidden="true"
+          />
+          <span>{{ sideMenu.name }}</span>
+        </li>
+      </ul>
+      <div
+        class="sidebar__bubble"
+        :style="{ transform: `translateY(calc(var(--sidebar-width) * ${currentMenu}))` }"
+        aria-hidden="true"
+      ></div>
+    </div>
   </aside>
 </template>
 
