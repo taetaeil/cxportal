@@ -41,7 +41,6 @@ declare module 'vue-router/auto-routes' {
     '/examples/switch': RouteRecordInfo<'/examples/switch', '/examples/switch', Record<never, never>, Record<never, never>>,
     '/examples/tab': RouteRecordInfo<'/examples/tab', '/examples/tab', Record<never, never>, Record<never, never>>,
     '/examples/table': RouteRecordInfo<'/examples/table', '/examples/table', Record<never, never>, Record<never, never>>,
-    '/examples/textarea': RouteRecordInfo<'/examples/textarea', '/examples/textarea', Record<never, never>, Record<never, never>>,
     '/examples/title': RouteRecordInfo<'/examples/title', '/examples/title', Record<never, never>, Record<never, never>>,
     '/examples/tooltip': RouteRecordInfo<'/examples/tooltip', '/examples/tooltip', Record<never, never>, Record<never, never>>,
     '/examples/tree': RouteRecordInfo<'/examples/tree', '/examples/tree', Record<never, never>, Record<never, never>>,
